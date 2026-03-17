@@ -11,7 +11,7 @@ public class HomeApi {
 
 	@GetMapping
 	public ResponseEntity<String> index() {
-		String message = "----- Springboot GraphQL | Index -----";
+		String message = "----- Springboot GraphQL | API Index -----";
 		return ResponseEntity.ok().body(message);
 	}
 }
