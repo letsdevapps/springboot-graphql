@@ -49,5 +49,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: springboot-rest
+          name: springboot-graphql
           path: target/*.jar
