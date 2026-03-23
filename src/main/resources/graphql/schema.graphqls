@@ -6,11 +6,31 @@ type Client {
     email: String
 }
 
+type Product {
+  id: ID!
+  name: String!
+  price: Float!
+  quantity: Int!
+}
+
+type Order {
+  id: ID!
+  clientId: ID!
+  productIds: [ID!]!
+  total: Float!
+}
+
 # Queries (consultas)
 type Query {
     message: String
     clients: [Client]
     client(id: ID): Client
+
+    products: [Product]
+    product(id: ID): Product
+
+    orders: [Order]
+    order(id: ID!): Order
 }
 
 # Mutations (operações que alteram dados)
@@ -18,4 +38,12 @@ type Mutation {
     createClient(name: String, email: String): Client
     deleteClient(id: ID): Boolean
     updateClient(id: ID, name: String, email: String): Client
+
+    createProduct(name: String, price: Float, quantity: Int): Product
+    deleteProduct(id: ID): Boolean
+    updateProduct(id: ID, name: String, price: Float, quantity: Int): Product
+
+    createOrder(clientId: ID!, productIds: [ID!]!): Order
+    deleteOrder(id: ID!): Boolean
+    updateOrder(id: ID!, productIds: [ID!]!): Order
 }
